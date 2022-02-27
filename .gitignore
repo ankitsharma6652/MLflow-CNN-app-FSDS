@@ -141,7 +141,7 @@ configs/secrets.yaml
 mlruns/
 data.zip
 PetImages
-logs/running_logs.log
+logs/
 data/MSR-LA - 3467.docx
 data/readme*
 data/bad_data
