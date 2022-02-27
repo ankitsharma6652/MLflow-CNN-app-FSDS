@@ -37,9 +37,11 @@ def main(config_path):
 
     # Unzip ops
     unzip_data_dir = config["data"]["unzip_data_dir"]
-    create_directories([unzip_data_dir])
-    unzip_file(source=data_file_path, dest=unzip_data_dir)
-
+    if not os.path.exists(unzip_data_dir):
+        create_directories([unzip_data_dir])
+        unzip_file(source=data_file_path, dest=unzip_data_dir)
+    else:
+        logging.info(f"data already extracted")
     # validating data
     validate_image(config)
 
@@ -55,5 +57,4 @@ if __name__ == '__main__':
         main(config_path=parsed_args.config)
         logging.info(f">>>>> stage {STAGE} completed!<<<<<\n")
     except Exception as e:
-        logging.exception(e)
-        raise e
+        logging.
