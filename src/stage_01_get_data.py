@@ -57,4 +57,5 @@ if __name__ == '__main__':
         main(config_path=parsed_args.config)
         logging.info(f">>>>> stage {STAGE} completed!<<<<<\n")
     except Exception as e:
-        logging.
+        logging.exception(e)
+        raise e
